@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p> <%= image_tag @event.cover_image %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>From datetime:</strong>
+  <%= @event.from_datetime %>
+</p>
+
+<p>
+  <strong>To datetime:</strong>
+  <%= @event.to_datetime %>
+</p>
+
+<p>
+  <strong>Ticket url:</strong>
+  <%= @event.ticket_url %>
+</p>
+
+<p>
+  <strong>Ticker price:</strong>
+  <%= @event.ticker_price %>
+</p>
+
+<p>
+  <strong>Venue title:</strong>
+  <%= @event.venue_title %>
+</p>
+
+<p>
+  <strong>Venue lat:</strong>
+  <%= @event.venue_lat %>
+</p>
+
+<p>
+  <strong>Venue long:</strong>
+  <%= @event.venue_long %>
+</p>
+
+<h2>Speakers:</h2>
+<% @event.speakers.each do |speaker| %>
+    <p>
+      <%= image_tag speaker.profile_pic %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= speaker.name %>
+    </p>
+
+    <p>
+      <strong>Bio:</strong>
+      <%= speaker.bio %>
+    </p>
+    <p>
+      <strong>Profile Url:</strong>
+      <%= speaker.profile_url %>
+    </p>
+    <p>
+      <%= link_to 'Destroy Speaker', [speaker.event, speaker],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+
+<h2>Add a speaker:</h2>
+<%= form_for([@event, @event.speakers.build]) do |sf| %>
+    <p>
+      <%= sf.label :name %><br>
+      <%= sf.text_field :name %>
+    </p>
+    <p>
+      <%= sf.label :bio %><br>
+      <%= sf.text_area :bio %>
+    </p>
+    <p>
+      <%= sf.label :profile_url %><br>
+      <%= sf.text_field :profile_url %>
+    </p>
+    <p>
+      <%= sf.file_field :profile_pic %>
+    </p>
+    <p>
+      <%= sf.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  from_datetime: 2016-10-19 20:21:19
+  to_datetime: 2016-10-19 20:21:19
+  ticket_url: MyString
+  ticker_price: 1
+  venue_title: MyString
+  venue_lat: 9.99
+  venue_long: 9.99
+
+two:
+  title: MyString
+  description: MyText
+  from_datetime: 2016-10-19 20:21:19
+  to_datetime: 2016-10-19 20:21:19
+  ticket_url: MyString
+  ticker_price: 1
+  venue_title: MyString
+  venue_lat: 9.99
+  venue_long: 9.99
